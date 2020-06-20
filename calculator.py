@@ -41,6 +41,12 @@ def do_operation():
 	global_text = str(result_number)
 	result.insert(0, str(result_number))
 
+def clear():
+	global global_text
+	global_text = ""
+	result.delete(0, "end")
+
+
 master = tk.Tk()
 
 result = tk.Entry(master)
@@ -58,6 +64,7 @@ tk.Button(master, text="/", command = lambda : set_operator(4)).grid(row=5, colu
 
 tk.Button(master, text="=", command = do_operation).grid(row=6, column = 4)
 
+tk.Button(master, text="AC", command = clear).grid(row = 6, column = 2)
 tk.Button(master, text='Quit', command=master.quit).grid(row=6, column=0, sticky=tk.W, pady=4)
 
 tk.mainloop()
